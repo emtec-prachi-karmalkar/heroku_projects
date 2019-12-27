@@ -1,0 +1,45 @@
+<div class="main" >
+  <div><br>
+    <div class="example-container">
+      <h2 style="color: #80002a;">To Do</h2>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList,doingList]"
+        class="list_block"
+        (cdkDropListDropped)="ondrop($event)">
+        <div class="list-items" *ngFor="let item of todo; let index = index" cdkDrag>{{item}}
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button (click) = "removeItem(index)" class="span_for_list">x</button>
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="example-container">
+      <h2 style="color: #80002a;">Doing</h2>
+      <div
+        cdkDropList
+        #doingList="cdkDropList"
+        [cdkDropListData]="doing"
+        [cdkDropListConnectedTo]="[todoList,doneList]"
+        class="list_block"
+        (cdkDropListDropped)="ondrop($event)">
+        <div class="list-items" *ngFor="let item of doing" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  -->
+    <div class="example-container">
+      <h2 style="color: #80002a;">Done</h2>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[doingList,todoList]"
+        class="list_block"
+        (cdkDropListDropped)="ondrop($event)">
+        <div class="list-items" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
+</div>
